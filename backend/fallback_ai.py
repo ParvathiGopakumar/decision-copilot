@@ -1,4 +1,4 @@
-from backend.models import DecisionAnalysis
+from models import DecisionAnalysis
 
 def fallback_decision_engine(description, options, constraints, risk_tolerance):
     analyses = []
