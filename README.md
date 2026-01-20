@@ -1,36 +1,145 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧠 Decision Copilot
 
-## Getting Started
+Decision Copilot is a full-stack **AI-assisted** decision analysis application that helps users evaluate multiple options against constraints and risk tolerance, and provides a structured, explainable recommendation. The system is designed with graceful fallback intelligence, ensuring reliable outputs even when external AI services are unavailable.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Features
+
+- 📋 Accepts real-world decision problems with multiple options  
+- ⚖️ Evaluates options using:  
+  - Pros  
+  - Cons  
+  - Risks  
+  - Numerical scoring  
+- 🎯 Generates a clear recommendation with confidence score  
+- 🦩 Structured JSON output (schema-driven)  
+- 🛡️ Built-in fallback decision engine for reliability  
+- 🌐 Full-stack setup (Next.js + FastAPI)
+
+---
+
+## 🏇 Architecture
+
+### Frontend
+
+- Next.js (App Router)  
+- TypeScript  
+- Tailwind CSS  
+- Responsive UI with structured result visualization
+
+### Backend
+
+- FastAPI  
+- Pydantic models for strict validation  
+- Modular AI agent layer  
+- Deterministic fallback decision engine
+
+---
+
+## 🧠 Decision Intelligence Flow
+
+1. User submits:
+   - Decision description  
+   - Options (minimum 2)  
+   - Constraints  
+   - Risk tolerance  
+
+2. Backend constructs a structured prompt.
+
+3. Primary AI Agent attempts structured analysis.
+
+4. If unavailable or invalid:
+   - Fallback Decision Engine produces a deterministic, explainable analysis.
+
+5. Frontend renders:
+   - Option comparison cards  
+   - Scores  
+   - Recommendation  
+   - Confidence level  
+
+This design ensures the application never fails silently and always produces a meaningful result.
+
+---
+
+## 🔁 Fallback Handling (Reliability by Design)
+
+The system includes an internal fallback decision engine that:
+
+- Uses rule-based scoring  
+- Adjusts scores based on risk tolerance  
+- Produces consistent, explainable outputs  
+- Matches the same response schema as the AI agent  
+
+This allows the application to:
+
+- Remain functional during API outages  
+- Be deployed without dependency on paid services  
+- Maintain a seamless user experience  
+
+---
+
+## 📁 Project Structure
+
+```
+decision-copilot/
+│
+├── backend/
+│   ├── agent.py              # AI agent configuration
+│   ├── fallback_ai.py        # Deterministic fallback engine
+│   ├── main.py               # FastAPI entry point
+│   ├── models.py             # Pydantic schemas
+│   └── requirements.txt
+│
+├── src/
+│   ├── app/                  # Next.js app router
+│   ├── components/           # UI components
+│   └── types.ts              # Shared types
+│
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ▶️ Running the Project Locally
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Backend
 
-## Learn More
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn backend.main:app --reload --port 8000
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Frontend
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm install
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Frontend runs on: `http://localhost:3000`  
+- Backend runs on: `http://localhost:8000`  
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🧪 Example Demo Input
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Decision**  
+- Should I relocate for a new job?
+
+**Options**
+
+- Relocate to London — Better work-life balance  
+- Relocate to New York — Higher salary and growth  
+
+**Constraints**
+
+- Visa requirements  
+- Cost of living  
+
+**Risk Tolerance**
+
+- Medium
