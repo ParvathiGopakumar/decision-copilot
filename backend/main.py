@@ -10,7 +10,7 @@ load_dotenv()
 
 app = FastAPI(title="Decision Copilot API")
 
-# Allow CORS for Next.js frontend
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -33,12 +33,11 @@ Options:
 """
 
     try:
-        # 🔹 Run AI agent
         result = await decision_agent.run(prompt)
         raw_response = result.data
         print("Agent Raw Response:", raw_response)
 
-        # 🔹 Clean markdown fences if present
+        
         clean_json = raw_response
         if "```json" in clean_json:
             clean_json = clean_json.split("```json")[1].split("```")[0].strip()
