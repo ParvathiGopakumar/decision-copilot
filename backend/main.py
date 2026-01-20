@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.models import DecisionRequest, DecisionAnalysis
-from backend.agent import decision_agent
-from backend.fallback_ai import fallback_decision_engine
+from models import DecisionRequest, DecisionAnalysis
+from agent import decision_agent
+from fallback_ai import fallback_decision_engine
 from dotenv import load_dotenv
 import json
 
