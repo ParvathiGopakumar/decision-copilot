@@ -146,6 +146,7 @@ npm run dev
 
   ## Result
 
-
+  <img width="1280" height="719" alt="image" src="https://github.com/ParvathiGopakumar/decision-copilot/blob/f486118e79ba32d179650ca9ce91cb3796ad0882/Screenshot%202026-01-20%20150338.png" />
+  <img width="1280" height="719" alt="image" src="https://github.com/ParvathiGopakumar/decision-copilot/blob/f486118e79ba32d179650ca9ce91cb3796ad0882/Screenshot%202026-01-20%20150751.png" />
 
 ---
