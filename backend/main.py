@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.models import DecisionRequest, DecisionAnalysis
 from backend.agent import decision_agent
+from backend.fallback_ai import fallback_decision_engine
 from dotenv import load_dotenv
 import json
 
@@ -49,18 +50,15 @@ Options:
         return DecisionAnalysis(**data)
 
     except Exception as e:
-        # ✅ BACKEND FALLBACK (minimal but valid)
-        print("Agent execution failed:", e)
+       print(f"The better decision would be: {e}")
 
-        return DecisionAnalysis(
-            summary="AI analysis could not be completed at this time.",
-            criteria=["Cost", "Risk", "Growth"],
-            options_analysis=[],
-            trade_offs=["AI service unavailable or returned invalid response"],
-            recommendation="Please try again later or decide based on personal priorities.",
-            reasoning=str(e),
-            confidence_score=0.0,
-        )
+       return fallback_decision_engine(
+           description=request.description,
+           options=request.options,
+           constraints=request.constraints,
+           risk_tolerance=request.risk_tolerance
+    )
+
 
 
 if __name__ == "__main__":

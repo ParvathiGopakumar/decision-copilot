@@ -48,13 +48,11 @@ export default function Home() {
             <div className="bg-gradient-to-tr from-blue-600 to-indigo-600 p-2 rounded-lg">
               <BrainCircuit className="w-6 h-6 text-white" />
             </div>
-            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-indigo-700 dark:from-blue-400 dark:to-indigo-400">
+            <span className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-indigo-700 dark:from-blue-400 dark:to-indigo-400">
               Decision Copilot
             </span>
           </div>
-          <a href="https://github.com/parva" target="_blank" className="text-sm font-medium text-zinc-500 hover:text-blue-600 dark:text-zinc-400 transition-colors">
-            Built with Pydantic AI
-          </a>
+          
         </div>
       </header>
 
@@ -69,7 +67,7 @@ export default function Home() {
                 </span>
               </h1>
               <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
-                Describe your dilemma, list your options, and let our advanced AI agent analyze the trade-offs, risks, and benefits to calculate the optimal path forward.
+                Describe your dilemma, list your options, and let our AI agent analyze the trade-offs, risks, and benefits to calculate the optimal path forward.
               </p>
             </div>
           )}

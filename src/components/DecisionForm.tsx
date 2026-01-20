@@ -118,7 +118,7 @@ export default function DecisionForm({ onSubmit, isLoading }: DecisionFormProps)
           <textarea
             value={constraints}
             onChange={(e) => setConstraints(e.target.value)}
-            placeholder="e.g., Budget under $50k&#10;Must happen within 3 months"
+            placeholder="e.g., Budget under ₹50k&#10;Must happen within 3 months"
             className="w-full p-3 rounded-xl border border-zinc-300 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800 focus:ring-2 focus:ring-blue-500 outline-none h-32 resize-none"
           />
         </div>
